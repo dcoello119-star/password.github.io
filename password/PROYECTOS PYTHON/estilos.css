@@ -1,0 +1,61 @@
+body
+{
+    margin: 0;/* se encarga de poner el contenidoen el centro de la pantalla  */
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:linear-gradient(rgb(206, 36, 36),   rgb(94, 94, 94));
+    height: 100vh;
+}
+ul
+{
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+ul li{
+    list-style: none;
+    margin: 0 15px;
+    transition: .4s;
+}
+ul li a{
+    display: block;
+    text-decoration: none;
+    position: relative ;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(212, 212, 212);
+    font-size: 18px;
+    padding: 7px;
+    transition: .4s;
+}
+ul:hover li a{/* controla como se ven los enlaces cuando pasa el cursor  */
+    transform: scale(1.1);
+    opacity: 1;
+    filter: blur(0);
+}
+ul li a:hover/* definr el enlace especifico que se esta tocando */
+{
+    transform: scale(1.8);
+    opacity: 1; 
+    filter:blur(0)
+}
+ul li a::before {/* Actua la animacion del pseudoelemento, haciendo que el fondo negro pase de ancho 0 a ancho completo */
+    content:"";
+    position: absolute;
+    top:0;
+    left: 0;
+    background: rgb(148, 57, 57);
+    width: 100%;
+    height: 100%;
+    transition:transform .4s;
+    transform-origin: right;
+    transform: scaleX(0);/* este es un rectangulo negro que cubre todo el enlace, pero esta escondido detras detras del texto */
+    z-index: -1;
+}
+
+ul li a:hover:before{
+transition: transform .4s;
+transform-origin: left;
+transform: scaleX(0.95);
+}
